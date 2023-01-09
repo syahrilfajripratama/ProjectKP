@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.clock {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 75%;
+  padding: 0 5px;
+}
+
+.row {
+  margin: 0 75px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #444;
+  color: white;
+}
+
+.fa {font-size:50px;}
+</style>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<body>
+
+<h2>Branch Manager Dashboard</h2>
+<p>Marketing Task Monitoring</p>
+<br>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <p><i class="fa fa-user"></i></p>
+      <h3>11+</h3>
+      <p>Marketings</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <p><i class="fa fa-check"></i></p>
+      <h3>55+</h3>
+      <p>Projects</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="column">
+    <div id="piechart1"></div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
+      // Load google charts
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Draw the chart and set the chart values
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+        ['Prospek Validated', 'Prospek On Progress'],
+        ['Validated', 12],
+        ['On Progress', 4],
+      ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = {'title':'Prospek Pie Chart', 'width':700, 'height':400};
+
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+        chart.draw(data, options);
+      }
+    </script>
+
+  </div>
+
+  <div class="column">
+    <div id="piechart"></div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
+      // Load google charts
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Draw the chart and set the chart values
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+        ['Marketing Names', 'Jumlah Prospek'],
+        ['Andri', 10],
+        ['Riska', 2],
+        ['Nadila', 4],
+      ]);
+
+        // Optional; add a title and set the width and height of the chart
+        var options = {'title':'Prospek Pie Chart', 'width':700, 'height':400};
+
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+    </script>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+    <script>
+    var xValues = ["Kebakaran", "Kendaraan Bermotor", "Properti", "Kelautan", "Pengangkutan", "Kredit"];
+    var yValues = [1, 2, 6, 1, 2, 4];
+    var barColors = ["red", "green","blue","orange","brown","purple"];
+
+    new Chart("myChart", {
+      type: "line",
+      data: {
+        labels: xValues,
+        datasets: [{
+          backgroundColor: barColors,
+          data: yValues
+        }]
+      },
+      options: {
+        legend: {display: false},
+        title: {
+          display: true,
+          text: "Pesebaran Prospek Asuransi"
+        }
+      }
+    });
+    </script>
+  </div>
+</div>
+
+<div id="DisplayClock" class="clock" onload="showTime()"></div>
+
+</body>
+<script>
+  function showTime(){
+	var date = new Date();
+	var h = date.getHours();
+	var m = date.getMinutes();
+	var s = date.getSeconds();
+	var session = "AM";
+
+	if(h == 0){
+		h = 12;
+	}
+	if (h > 12) {
+		h = h - 12 ;
+		session = "PM";
+	}
+
+	h = (h<10) ? "0" + h : h;
+	m = (m<10) ? "0" + m : m;
+	s = (s<10) ? "0" + s : s;
+
+	var time = h + ":" + m + ":" + s + " " + session;
+
+	document.getElementById("DisplayClock").innerText = time;
+	document.getElementById("DisplayClock").textContent = time;
+
+	setTimeout(showTime, 1000);
+}
+
+showTime();
+
+</script>
+</html>
