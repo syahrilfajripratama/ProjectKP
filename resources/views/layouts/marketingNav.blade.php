@@ -19,16 +19,19 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link {{ ($title === "Home") ? 'active' : '' }}" aria-current="page" href="mhome">Home</a>
+              <a class="nav-link {{ ($title === "Home") ? 'active' : '' }}" aria-current="page" href="/mhome">Home</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle {{ ($title === "Prospek") ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{-- <li class="nav-item dropdown">
+              <a class="nav-link {{ ($title === "Prospek") ? 'disabled' : '' }} dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Prospek
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="on-progress">On Progress</a></li>
                 <li><a class="dropdown-item" href="validated">Validated</a></li>
               </ul>
+            </li> --}}
+            <li class="nav-item">
+                <a class="nav-link {{ ($title === "Prospek") ? 'active' : '' }}" aria-current="page" href="/marketing">Prospek</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ ($title === "Profile") ? 'active' : '' }}" aria-current="page" href="#">Profile</a>

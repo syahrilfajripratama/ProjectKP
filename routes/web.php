@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MyController;
 use App\Http\Controllers\dataProspekController;
 use App\Models\dataProspek;
 use Illuminate\Support\Facades\Route;
@@ -28,9 +29,13 @@ Route::get('/bmhome', function () {
     ]);
 });
 
-Route::get('/on-progress', [dataProspekController::class, 'showDataProgress']);
+Route::get('/branchManager', [dataProspekController::class, 'bm']);
+// Route::get('/mycontroller/{href}', [MyController::class, 'index']);
+Route::get('/marketing', [dataProspekController::class, 'marketing']);
 
-Route::get('/validated', [dataProspekController::class, 'showDataValidated']);
+Route::get('/marketing/{slug}', [dataProspekController::class, 'showMarketing']);
+
+Route::get('/branchManager/{slug}', [dataProspekController::class, 'showBm']);
 
 Route::get('/bmValidated', function () {
     return view('bmValidated',[
@@ -49,11 +54,3 @@ Route::get('/addmarketing', function () {
         "title" => "Add Marketing"
     ]);
 });
-
-Route::get('/inputProspek', function () {
-    return view('inputProspek', [
-        "title" => "Prospek"
-    ]);
-});
-
-// buat tab marketings jangan prospek dimana didalamnya ada nama2 marketing dan ketika di klik baru mengarah ke prospek implementasu sama seperti halam 1 & 2 di video

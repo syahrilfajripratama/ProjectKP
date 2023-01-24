@@ -1,8 +1,8 @@
 @extends('layouts.marketingNav')
 
 @section('container')
-    <h1>Masukkan Prospek yang akan anda tuju.</h1>
-    <a href="mProgress"><button type="button" class="btn btn-outline-primary">< Kembali</button></a>
+<h1>Masukkan Prospek yang akan anda tuju.</h1>
+<a href="/marketing/on-progress"><button type="button" class="btn btn-outline-primary">< Kembali</button></a>
     <div class="form-floating mt-3 mb-3">
         <input type="text" class="form-control" id="floatingInput" placeholder="PT. Asuransi Bintang, Tbk.">
         <label for="floatingInput">Perusahaan</label>

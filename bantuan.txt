@@ -1,0 +1,27 @@
+Untuk mengimplementasikan opsi pertama yaitu menambahkan href sebagai parameter pada url yang dituju ketika user mengklik link, berikut ini adalah implementasi lengkapnya dari sisi controller dan view:
+
+Pertama, buat route baru yang mengarah ke controller yang dibuat. Misalnya:
+Copy code
+Route::get('/mycontroller/{href}', 'MyController@index');
+Selanjutnya, buat controller baru dengan nama MyController. Dalam controller tersebut, buat method index yang akan digunakan untuk menangani request dari route di atas. Misalnya:
+Copy code
+class MyController extends Controller
+{
+    public function index($href)
+    {
+        if ($href == 'link1') {
+            return view('page1')->with('layout', 'layout1');
+        } else if ($href == 'link2') {
+            return view('page1')->with('layout', 'layout2');
+        }
+    }
+}
+Selanjutnya, dalam view yang akan digunakan untuk menampilkan link, tambahkan href sebagai parameter pada url yang dituju ketika user mengklik link. Misalnya:
+Copy code
+<a href="{{ url('/mycontroller/link1') }}">Link 1</a>
+<a href="{{ url('/mycontroller/link2') }}">Link 2</a>
+Selanjutnya, pada file blade, Anda dapat menggunakan perintah "extends" dengan variable yang telah di passing dari controller.
+Copy code
+@extends($layout)
+Selanjutnya, pastikan Anda telah menambahkan logika untuk mengirimkan href dari view ke controller ketika user mengklik link tersebut, misalnya dengan menambahkan href pada tag <a> dan membuat function javascript untuk mengirimkan href ke controller.
+Semoga membantu! Jika Anda memiliki pertanyaan lain, silakan tany

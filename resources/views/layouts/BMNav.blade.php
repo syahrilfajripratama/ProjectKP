@@ -23,7 +23,7 @@
             <li class="nav-item">
               <a class="nav-link {{ ($title === "Home") ? 'active' : '' }}" aria-current="page" href="bmhome">Home</a>
             </li>
-            <li class="nav-item dropdown">
+            {{-- <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle {{ ($title === "Prospek") ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Prospek
               </a>
@@ -31,6 +31,10 @@
                 <li><a class="dropdown-item" href="bmProgress">On Progress</a></li>
                 <li><a class="dropdown-item" href="bmValidated">Validated</a></li>
               </ul>
+            </li> --}}
+            {{-- <a href="{{ url('/mycontroller?href=' . $link) }}">Link</a> --}}
+            <li class="nav-item">
+                <a class="nav-link {{ ($title === "Prospek") ? 'active' : '' }}" aria-current="page" href="branchManager">Prospek</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ ($title === "Add Marketing") ? 'active' : '' }}" aria-current="page" href="addmarketing">Add Marketing</a>

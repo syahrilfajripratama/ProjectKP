@@ -1,7 +1,7 @@
-@extends('layouts.bmNav')
+@extends('layouts.marketingNav')
 
 @section('container')
-<a href="/branchManager"><button type="button" class="btn btn-outline-primary">< Kembali</button></a>
+<a href="/marketing"><button type="button" class="btn btn-outline-primary">< Kembali</button></a>
 <h1>Validated Prospek</h1>
     <table class="table">
         <thead>
