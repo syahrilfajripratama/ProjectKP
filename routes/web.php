@@ -1,10 +1,9 @@
 <?php
 
-use App\Http\Controllers\MyController;
 use App\Http\Controllers\dataProspekController;
-use App\Models\dataProspek;
+use App\Http\Controllers\loginController;
+use App\Http\Controllers\addMarketingController;
 use Illuminate\Support\Facades\Route;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +34,22 @@ Route::get('/marketing', [dataProspekController::class, 'marketing']);
 
 Route::get('/marketing/{slug}', [dataProspekController::class, 'showMarketing']);
 
+Route::post('/marketing/inputProspek', [dataProspekController::class, 'store']);
+
 Route::get('/branchManager/{slug}', [dataProspekController::class, 'showBm']);
+
+// Route::get('/index', [loginController::class, 'index']);
+
+// Route::post('/index', [loginController::class, 'authenticate']);
+
+Route::get('/', [LoginController::class, 'login'])->name('login');
+Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
+Route::get('home', [HomeController::class, 'home'])->name('home')->middleware('auth');
+Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');
+
+Route::get('/addmarketing', [addMarketingController::class, 'index']);
+
+Route::post('/addmarketing', [addMarketingController::class, 'store']);
 
 Route::get('/bmValidated', function () {
     return view('bmValidated',[
@@ -49,8 +63,8 @@ Route::get('/bmProgress', function () {
     ]);
 });
 
-Route::get('/addmarketing', function () {
-    return view('addmarketing', [
-        "title" => "Add Marketing"
-    ]);
-});
+// Route::get('/addmarketing', function () {
+//     return view('addmarketing', [
+//         "title" => "Add Marketing"
+//     ]);
+// });
