@@ -1,0 +1,4 @@
+Dokumentasi tanggal 9 Februari 2023
+1. Tombol Comments pada on progress bm valuenya masih default 
+2. Details pada Validated Prospek masi menampilkan nilai paling atas 
+3. Button Log belum menampilkan data yang sebenarnya ( Sama Ksusnya seperti nomor 2)
